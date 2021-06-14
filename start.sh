@@ -1,3 +1,5 @@
 cd build
 make
-./hello
+cd ..
+./build/hello
+# ./hello

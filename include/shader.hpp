@@ -11,8 +11,9 @@ class Shader
 {
 public: 
   uint Id;
-  Shader(const char*, const char*);
+  Shader(std::string, std::string);
   void use();
+  void setFloat(const std::string&, float);
 
 private:
   Shader();

@@ -6,7 +6,7 @@
 #include <sstream>
 #include "../include/shader.hpp"
 
-Shader::Shader(const char* vertPath, const char* fragPath) {
+Shader::Shader(std::string vertPath, std::string fragPath) {
   std::string vertCode, fragCode;
 
   std::ifstream vertFile, fragFile;
@@ -44,4 +44,8 @@ Shader::Shader(const char* vertPath, const char* fragPath) {
 
 void Shader::use() {
   glUseProgram(Id);
+}
+
+void Shader::setFloat(const std::string & name, float value) {
+  glUniform1f(glGetUniformLocation(Id, name.c_str()), value);
 }

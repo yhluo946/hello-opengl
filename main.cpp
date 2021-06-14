@@ -1,7 +1,14 @@
 #include <iostream>
 #include <math.h>
+#include <filesystem>
+
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include <glm/glm.hpp>
+#include <assimp/Importer.hpp>
+#define STB_IMAGE_IMPLEMENTATION
+#include "include/stb_image.h"
+
 #include "include/noob.hpp"
 #include "include/shader.hpp"
 
@@ -10,6 +17,9 @@ void processInput(GLFWwindow*);
 
 int main()
 {
+    glm::vec4 vec(1.0f, 1.0f, 1.0f, 1.0f);
+    Assimp::Importer importe;
+
     glfwInit();
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
@@ -111,6 +121,8 @@ int main()
 
         // glUseProgram(shaderProgram);
         shader.use();
+        
+        // shader.setFloat("offsetX", (++count % 100 - 50) / 100.0f);
         
         float redValue = sin(glfwGetTime()) / 2.0f + 0.5f;
 
